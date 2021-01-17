@@ -77,9 +77,9 @@ module.exports = function (eleventyConfig) {
 	 */
 	eleventyConfig.addCollection('post', (collection) => {
 		if (process.env.ELEVENTY_ENV !== 'production')
-			return [...collection.getFilteredByGlob('./src/posts/*.md')]
+			return [...collection.getFilteredByGlob('./src/posts/*.md')].sort((a, b) => a.data.date2 - b.data.date2)
 		else
-			return [...collection.getFilteredByGlob('./src/posts/*.md')].filter((post) => !post.data.draft)
+			return [...collection.getFilteredByGlob('./src/posts/*.md')].sort((a, b) => a.data.date2 - b.data.date2)
 	})
 
 	// TAGLIST used from the official eleventy-base-blog  https://github.com/11ty/eleventy-base-blog/blob/master/.eleventy.js
