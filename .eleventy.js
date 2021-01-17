@@ -4,7 +4,7 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const markdownIt = require('markdown-it')
 const markdownItEmoji = require('markdown-it-emoji')
-
+const format = require('date-fns/format')
 // const collections = require('./utils/collections.js')
 const filters = require('./utils/filters.js')
 const shortcodes = require('./utils/shortcodes.js')
@@ -56,7 +56,9 @@ module.exports = function (eleventyConfig) {
 			pairedshortcodes[shortcodeName]
 		)
 	})
-
+  eleventyConfig.addFilter('date', function (date, dateFormat) {
+    return format(date, dateFormat)
+  })
 	/**
 	 * Add async shortcodes
 	 *
