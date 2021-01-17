@@ -1,0 +1,52 @@
+---
+title: Livres
+date: 2020-08-05
+description: 
+layout: page
+eleventyNavigation:
+  key: main
+  title: Livres #  as it will appear in the nav
+  order: 2    # order to display in the nav
+seo:
+  title: Livres publiés
+  description: Livre publiés dans la collection entre 2006 et 2017.
+pagination:
+  data: collections.post 
+  size: 12
+  reverse: true
+  alias: posts
+---
+
+
+{% wrap "px-2 my-4 rounded-lg py-2 border border-red-300 bg-gray-200" %}
+
+<h3>Changements concernant Vision des Sciences</h3>
+<p>
+ La collection Vision des Sciences est close chez Hermann.</p>
+ 
+<p>
+Elle reprend sous une autre forme, Nouvelles visions de sciences, chez <a href="https://spartacus-idh.com/collections/nouvelles-visions-des-sciences.html"> Spartacus IDH </a>
+</p>
+<p>
+<strong>Comité éditorial :</strong> G. Longo, M. Montévil, M. Mossio 
+</p>
+
+{% endwrap %}
+
+
+<hr class="mt-8">
+
+{% set postslist = posts | reverse %}
+
+{# 
+  Allows a user to easily change the Tag List Style.
+  Please see instructions in /src/_data/structure.js >>> ===== Post List Style Options =====
+#}
+{% set postlist = ['components/', structure.postListStyle, '.njk'] %}
+{% include postlist | join %}
+
+{# ===== Paginate based on "size" frontmatter value above =====  #}
+{# Don't even include the pagination component if there are fewer posts than needed to paginate  #}
+{% if collections.post.length > pagination.size %}
+  {% include "components/pagination.njk" %}
+{% endif %}
