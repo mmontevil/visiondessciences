@@ -2,6 +2,12 @@ const { DateTime } = require('luxon')
 const slugify = require('slugify')
 const cleanCSS = require('clean-css')
 
+ const fs = require('fs');
+const linkifyUrls = require('linkify-urls');
+const Cite = require('citation-js');
+const path = require('path');
+const TurndownService = require('turndown');
+
 module.exports = {
 	/**
 	 * Filters
@@ -64,4 +70,42 @@ module.exports = {
 	cssmin: (code) => {
 		return new cleanCSS({}).minify(code).styles
 	},
+            urlify: (text)  => {
+      return  linkifyUrls(text );
+    },
+    
+    
+      bibcite: (bibfi) => {
+              let relativeFilePath = `${bibfi}`;
+              let rawBib = fs.readFileSync(relativeFilePath);
+                  const cite =new Cite(`${rawBib}`);
+     return linkifyUrls(cite.format('bibliography', {
+            format: 'html',
+            template: 'apa',
+            lang: 'en-US'
+        }))
+         },
+          bibbibtex:(bibfi)  =>{
+              let relativeFilePath = `${bibfi}`;
+              let rawBib = fs.readFileSync(relativeFilePath);
+                  const cite =new Cite(`${rawBib}`);
+     return cite.format('bibtex', {
+            format: 'html',
+            template: 'apa',
+            lang: 'en-US'
+        })
+         },     
+        bibcite2: (bibfi) => {
+                  const cite =new Cite(`${JSON.stringify(bibfi)}`);
+     return linkifyUrls(cite.format('bibliography', {
+            format: 'html',
+            template: 'apa',
+            lang: 'en-US'
+        }))
+         },   
+                 turndownf: (hh) => {
+                     const turndownService = new TurndownService();
+     return  turndownService.turndown(hh)
+         },
+         
 }
