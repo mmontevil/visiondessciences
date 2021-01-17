@@ -1,6 +1,6 @@
 ---
 # This is a full listing of available Frontmatter options, available for any content (.md) file.
-title: Vision des sciences
+title: Visions des sciences
 layout: page
 excerpt: # used for page excerpts and META (will be overwritten if SEO used below)
 author: Webmaster # only displayed on Post lists and detail views. Defaults to _data/meta.authorURL
@@ -45,9 +45,9 @@ heroSettings:
 
 {% wrap "px-2 my-4 rounded-lg py-2 border border-red-300 bg-gray-200" %}
 
-### Changements concernant Vision des Sciences
+### Changements concernant Visions des Sciences
 
-La collection *Vision des Sciences* est close chez Hermann.
+La collection *Visions des Sciences* est close chez Hermann.
 
 Elle reprend sous une autre forme, *Nouvelles visions de sciences*, chez [Spartacus IDH](https://spartacus-idh.com/collections/nouvelles-visions-des-sciences.html)
 
@@ -56,7 +56,7 @@ Elle reprend sous une autre forme, *Nouvelles visions de sciences*, chez [Sparta
 {% endwrap %}
  
 
-### Collection Vision des Sciences
+### Collection Visions des Sciences
  
 La collection Visions des sciences a pour objectif la publication et la promotion de travaux originaux et inédits concernant les corrélations et les différences méthodologiques, conceptuelles et philosophiques dans la pensée physique, mathématique et plus généralement dans les sciences contemporaines.
 

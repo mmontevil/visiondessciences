@@ -13,7 +13,7 @@ module.exports = {
 	/**
 	 * Globally disable display of Tag pills/links
 	 */
-	g_showTagPills: true,
+	g_showTagPills: false,
 
 	/**
 	 * Set alignment of Pagination links on Post Listing views.

@@ -1,6 +1,6 @@
 module.exports = {
 	siteURL: process.env.URL || 'http://localhost:8080',
-	siteName: "Vision des Sciences",
+	siteName: "Visions des Sciences",
 	siteDescription:
 		'La collection Visions des sciences a pour objectif la publication et la promotion de travaux originaux et inédits concernant les sciences contemporaines. ',
 	siteImage: '/assets/images/site/default.png',
