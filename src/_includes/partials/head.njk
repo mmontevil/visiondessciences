@@ -9,13 +9,17 @@
 {% endif %}
 {%- endset -%}
 {#- General #}
+{% if not idbib %}
 <meta name="author" content="{{ author or meta.authorName }}" />
+{% endif %}
 <meta name="description" content="{{ seo.description or excerpt or meta.siteDescription }}" />
 <link rel="canonical" href="{{ absolutePageUrl }}" />
 {#- Open Graph #}
 <meta property="og:site_name" content="{{ meta.title }}" />
+{% if not idbib %}
 <meta property="og:title" content="{{ seo.title or title }} | {{ meta.siteName }}" />
 <meta property="og:description" content="{{ seo.description or excerpt or meta.siteDescription }}" />
+{% endif %}
 <meta property="og:url" content="{{ absolutePageUrl }}" />
 <meta property="og:locale" content="{{ meta.locale }}" />
 <meta property="og:image" content="{{ ogImage | url | absoluteUrl(build.url) }}" />

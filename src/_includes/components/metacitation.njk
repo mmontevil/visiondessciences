@@ -1,0 +1,33 @@
+ 
+{%- for entry in bib -%}
+{% if entry.id=== idbib%}
+<meta property="citation_title" content="{{ entry.title}}" />
+<meta property="citation_publication_date" content="{{entry.issued['date-parts'][0][0]}}" />
+<meta property="citation_date" content="{{entry.issued['date-parts'][0][0]}}" />
+<meta property="citation_year" content="{{entry.issued['date-parts'][0][0]}}" />        
+<meta property="citation_publisher" content="{{entry.publisher}}" />
+<meta property="citation_abstract" content="{{entry.abstract}}" />
+{% if entry.ISBN%} <meta property="citation_isbn" content="{{entry.ISBN}}" /> {% endif %}
+{% if entry.ISSN%} <meta property="citation_issn" content="{{entry.ISSN}}" /> {% endif %}
+<meta property="citation_series_title" content="{{entry['collection-title']}}" />
+<meta property="citation_lastpage" content="{{entry.page}}" />
+{% for auth in entry.author %}
+<meta property="citation_author" content="{{  auth.family}}, {{ auth.given }}" />
+{% endfor %}
+{% for auth in entry.editor %}
+<meta property="citation_author" content="{{  auth.family}}, {{ auth.given }}" />
+{% endfor %}
+<meta property="og:title" content="{{ entry.title}}" />
+<meta property="og:type" content="{{ entry.type}}" />
+{% for auth in entry.author %}
+<meta property="book:author" content="{{  auth.family}}, {{ auth.given }}" />
+<meta name="author" content="{{  auth.family}}, {{ auth.given }}" />
+{% endfor %}
+{% for auth in entry.editor %}
+<meta property="book:author" content="{{  auth.family}}, {{ auth.given }}" />
+<meta name="author" content="{{  auth.family}}, {{ auth.given }}" />
+{% endfor %}
+{% if entry.ISBN%} <meta property="book:isbn" content="{{entry.ISBN}}" /> {% endif %}
+<meta property="book:release_date " content="{{entry.issued['date-parts'][0][0]}}" />
+{%- endif -%}
+{%- endfor -%}
